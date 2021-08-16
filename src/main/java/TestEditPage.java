@@ -1,4 +1,4 @@
-
+package main.java;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -56,7 +56,7 @@ public class TestEditPage {
 
     @Test
     public void testPageURL() {
-        Assert.assertEquals(driver.getCurrentUrl(),"http://a.testaddressbook.com/addresses/8175/edit");
+        Assert.assertEquals(driver.getCurrentUrl(),"http://a.testaddressbook.com/addresses/8748/edit");
     }
 
    @Test
@@ -73,7 +73,5 @@ public class TestEditPage {
        List<WebElement> newLastName = driver.findElements(By.xpath("//p[2]/span"));
        Assert.assertEquals(newLastName.get(0).getText(), "Last name:");
        Assert.assertEquals(newLastName.get(1).getText(), newName);
-
    }
-
 }

@@ -1,3 +1,5 @@
+package main.java;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -53,7 +55,7 @@ public class TestAddressesPage {
 
     @Test
     public void testPageBodyH2() {
-        WebElement h2 = driver.findElement(By.xpath("//div[@class='text-center']/h2"));
+        WebElement h2 = driver.findElement(By.xpath("//div[@class='container']/h2"));
         Assert.assertTrue(h2.isDisplayed());
         Assert.assertEquals(h2.getText(), "Addresses");
     }
