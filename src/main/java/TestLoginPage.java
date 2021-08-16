@@ -82,4 +82,10 @@ public class TestLoginPage {
         WebElement message=driver.findElement(By.xpath("//div[@class='alert alert-notice'][@data-test='notice']"));
         Assert.assertEquals(message.getText(), "Bad email or password.");
     }
+
+    @Test
+    public void testSelectedSignIn(){
+        WebElement isSelected = driver.findElement(By.xpath("//a[@id='sign-in']/span[@class='sr-only']"));
+        Assert.assertNotNull(isSelected);
+    }
 }
