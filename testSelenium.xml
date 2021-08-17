@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite" parallel="tests" thread-count="5">
+
+<suite name="All Test Suite" parallel="classes" thread-count="3">
     <test verbose="2" preserve-order="true" name="C:/Users/AnwarQ/IdeaProjects/FirstSeleniumTask">
         <classes>
-            <class name="main.java.TestHomePage"/>
-            <class name="main.java.TestLoginPage"/>
-            <class name="main.java.TestInPage"/>
-            <class name="main.java.TestAddressesPage"/>
-            <class name="main.java.TestShowPage"/>
-            <class name="main.java.TestEditPage"/>
+            <class name="test.java.TestWelcomePage"/>
+            <class name="test.java.TestSignInPage"/>
+            <class name="test.java.TestHomePage"/>
         </classes>
     </test>
 </suite>
