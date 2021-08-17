@@ -24,12 +24,16 @@ public class TestWelcomePage {
         driver.manage().window().maximize();
         this.welcomePage = new WelcomePage(driver);
         this.welcomePage.goToURL(XPaths.welcomePageURL);
+        new WebDriverWait(this.welcomePage.getDriver(), 5).until
+                (ExpectedConditions.visibilityOfAllElementsLocatedBy(XPaths.header1));
     }
 
     @AfterMethod
     public void testTeardown() {
         this.welcomePage.getDriver().manage().deleteAllCookies();
         this.welcomePage.goToURL(XPaths.welcomePageURL);
+        new WebDriverWait(this.welcomePage.getDriver(), 5).until
+                (ExpectedConditions.visibilityOfAllElementsLocatedBy(XPaths.header1));
     }
 
     @AfterClass

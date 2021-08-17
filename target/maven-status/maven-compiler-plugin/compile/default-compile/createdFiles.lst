@@ -1,4 +1,4 @@
-main\java\TestEditPage.class
-main\java\TestAddressesPage.class
-main\resources\XPaths.class
-main\java\TestShowPage.class
+test\java\TestEditPage.class
+main\java\EditPage.class
+main\java\ShowPage.class
+test\java\TestShowPage.class

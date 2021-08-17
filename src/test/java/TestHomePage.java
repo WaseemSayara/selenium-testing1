@@ -30,12 +30,15 @@ public class TestHomePage {
         this.homePage.getDriver().findElement(XPaths.emailField).sendKeys(XPaths.myEmail);
         this.homePage.getDriver().findElement(XPaths.passwordField).sendKeys(XPaths.myPassword);
         this.homePage.getDriver().findElement(XPaths.signInButton).click();
+        new WebDriverWait(this.homePage.getDriver(), 5).until
+                (ExpectedConditions.visibilityOfAllElementsLocatedBy(XPaths.header1));
     }
 
     @AfterMethod
     public void testTeardown() {
-        this.homePage.getDriver().manage().deleteAllCookies();
         this.homePage.goToURL(XPaths.homePageURL);
+        new WebDriverWait(this.homePage.getDriver(), 5).until
+                (ExpectedConditions.visibilityOfAllElementsLocatedBy(XPaths.header1));
     }
 
     @AfterClass
@@ -72,20 +75,16 @@ public class TestHomePage {
     @Test
     public void testNavBarHomeClickURL() {
         this.homePage.clickOnNavBarHome();
-        Assert.assertEquals(this.homePage.getURL(), "http://a.testaddressbook.com/");
+        Assert.assertEquals(this.homePage.getURL(), XPaths.homePageURL);
     }
 
     @Test
     public void testNavBarAddressesText() {
-        new WebDriverWait(this.homePage.getDriver(), 5).until(ExpectedConditions.visibilityOf
-                (this.homePage.getDriver().findElement(XPaths.navBarAddresses)));
         Assert.assertEquals(this.homePage.getNavBarAddressesText(), "Addresses");
     }
 
     @Test
     public void testNavBarAddressesClickTitle() {
-        new WebDriverWait(this.homePage.getDriver(), 5).until(ExpectedConditions.visibilityOf
-                (this.homePage.getDriver().findElement(XPaths.navBarAddresses)));
         this.homePage.clickOnNavBarAddresses();
         Assert.assertEquals(this.homePage.getPageTitle(), "Address Book");
     }
@@ -95,7 +94,14 @@ public class TestHomePage {
         new WebDriverWait(this.homePage.getDriver(), 5).until(ExpectedConditions.visibilityOf
                 (this.homePage.getDriver().findElement(XPaths.navBarAddresses)));
         this.homePage.clickOnNavBarAddresses();
-        Assert.assertEquals(this.homePage.getURL(), "http://a.testaddressbook.com/addresses");
+        Assert.assertEquals(this.homePage.getURL(), XPaths.addressesPageURL);
+    }
+
+    @Test
+    public void testNavBarSignOutText() {
+        new WebDriverWait(this.homePage.getDriver(), 5).until(ExpectedConditions.visibilityOf
+                (this.homePage.getDriver().findElement(XPaths.navBarSignOut)));
+        Assert.assertEquals(this.homePage.getNavBarSignOutText(), "Sign out");
     }
 
 }

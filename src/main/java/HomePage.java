@@ -8,63 +8,63 @@ public class HomePage {
 
     ChromeDriver driver;
 
-    public HomePage(ChromeDriver driver){
+    public HomePage(ChromeDriver driver) {
         this.driver = driver;
     }
 
-    public ChromeDriver getDriver(){
+    public ChromeDriver getDriver() {
         return driver;
     }
 
-    public void goToURL(String URL){
+    public void goToURL(String URL) {
         driver.get(URL);
     }
 
-    public void closeDriver(){
+    public void closeDriver() {
         driver.close();
     }
 
-    public String getPageTitle(){
+    public String getPageTitle() {
         return driver.getTitle();
     }
 
-    public String getURL(){
+    public String getURL() {
         return driver.getCurrentUrl();
     }
 
-    public String getHeader1Text(){
+    public String getHeader1Text() {
         return driver.findElement(XPaths.header1).getText().trim();
     }
 
-    public String getHeader4Text(){
+    public String getHeader4Text() {
         return driver.findElement(XPaths.header4).getText().trim();
     }
 
-    public String getNavBarHomeText(){
+    public String getNavBarHomeText() {
         return driver.findElement(XPaths.navBarHome).getText().trim();
     }
 
-    public void clickOnNavBarHome(){
+    public void clickOnNavBarHome() {
         driver.findElement(XPaths.navBarHome).click();
     }
 
-    public String getNavBarAddressesText(){
+    public String getNavBarAddressesText() {
         return driver.findElement(XPaths.navBarAddresses).getText().trim();
     }
 
-    public void clickOnNavBarAddresses(){
+    public void clickOnNavBarAddresses() {
         driver.findElement(XPaths.navBarAddresses).click();
     }
 
-    public String getNavBarSignOutText(){
+    public String getNavBarSignOutText() {
         return driver.findElement(XPaths.navBarSignOut).getText().trim();
     }
 
-    public void clickOnNavBarSignOut(){
+    public void clickOnNavBarSignOut() {
         driver.findElement(XPaths.navBarSignOut).click();
     }
 
-    public String getNavBarSignedInEmailText(){
+    public String getNavBarSignedInEmailText() {
         return driver.findElement(XPaths.SignedInEmail).getText().trim();
     }
 

@@ -1,3 +1,6 @@
 test\java\TestWelcomePage.class
+test\java\TestEditPage.class
 test\java\TestHomePage.class
 test\java\TestSignInPage.class
+test\java\TestAddressesPage.class
+test\java\TestShowPage.class

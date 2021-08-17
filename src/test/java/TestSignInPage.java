@@ -4,6 +4,8 @@ import main.java.SignInPage;
 import main.resources.XPaths;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -25,12 +27,16 @@ public class TestSignInPage {
         driver.manage().window().maximize();
         this.signInPage = new SignInPage(driver);
         this.signInPage.goToURL(XPaths.signInPageURL);
+        new WebDriverWait(this.signInPage.getDriver(), 5).until
+                (ExpectedConditions.visibilityOfAllElementsLocatedBy(XPaths.emailField));
     }
 
     @AfterMethod
     public void testTeardown() {
         this.signInPage.getDriver().manage().deleteAllCookies();
         this.signInPage.goToURL(XPaths.signInPageURL);
+        new WebDriverWait(this.signInPage.getDriver(), 5).until
+                (ExpectedConditions.visibilityOfAllElementsLocatedBy(XPaths.emailField));
     }
 
     @AfterClass
