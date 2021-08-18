@@ -85,7 +85,7 @@ public class TestSignInPage {
         this.signInPage.setEmailField(XPaths.myEmail);
         this.signInPage.setPasswordField(XPaths.myPassword);
         this.signInPage.clickSignInButton();
-        Assert.assertEquals(this.signInPage.getURL(), "http://a.testaddressbook.com/");
+        Assert.assertEquals(this.signInPage.getURL(), XPaths.homePageURL);
     }
 
     @Test
@@ -117,6 +117,6 @@ public class TestSignInPage {
     @Test
     public void testSignUpClick() {
         this.signInPage.clickSignUpButton();
-        Assert.assertEquals(this.signInPage.getURL(), "http://a.testaddressbook.com/sign_up");
+        Assert.assertEquals(this.signInPage.getURL(), XPaths.signUpPageURL);
     }
 }

@@ -21,6 +21,14 @@ public class XPaths {
     public final static By warning = By.xpath("//div[@class='alert alert-notice'][text()='Bad email or password.']");
 
 
+    public final static String signUpPageURL = "http://a.testaddressbook.com/sign_up";
+    public final static By signUpEmailField = By.xpath("//div[@class='form-group row']/input[@name='user[email]']");
+    public final static By signUpPasswordField = By.xpath("//div[@class='form-group row']/input[@name='user[password]']");
+    public final static By signUpConfirm = By.xpath("//div[@class='form-group row']/input[@name='commit']");
+    public final static String usersPageURL = "http://a.testaddressbook.com/users";
+
+
+
     public final static String homePageURL = "http://a.testaddressbook.com/";
     public final static By navBarAddresses = By.xpath("//div[@class='navbar-nav mr-auto']/a[@data-test='addresses']");
     public final static By navBarSignOut = By.xpath("//div[@class='navbar-nav mr-auto']/a[@data-test='sign-out']");
@@ -45,5 +53,21 @@ public class XPaths {
     public final static By newLastName = By.xpath("//p[2]/span");
 
     public final static String addPageURL = "http://a.testaddressbook.com/addresses/new";
+    public final static By addFirstNameField = By.xpath("//form[@class='new_address']/div/input[@name='address[first_name]']");
+    public final static By addLastNameField = By.xpath("//form[@class='new_address']/div/input[@name='address[last_name]']");
+    public final static By addAddress1Field = By.xpath("//form[@class='new_address']/div/input[@name='address[address1]']");
+    public final static By addCityNameField = By.xpath("//form[@class='new_address']/div/input[@name='address[city]']");
+    public final static By addStateCalifornia = By.xpath("//form[@class='new_address']/div/select[@name='address[state]']/option[@value='CA']");
+    public final static By addZipCodeField = By.xpath("//form[@class='new_address']/div/input[@name='address[zip_code]']");
+    public final static By createNewAddressButton = By.xpath("//form[@class='new_address']/div/input[@name='commit']");
+    public final static By addedFirstName = By.xpath("//div[@class='container']/p/span[@data-test='first_name']");
+    public final static By addedLastName = By.xpath("//div[@class='container']/p/span[@data-test='last_name']");
+    public final static By addedAddress1Name = By.xpath("//div[@class='container']/p/span[@data-test='street_address']");
+    public final static By addedCityName = By.xpath("//div[@class='container']/p/span[@data-test='city']");
+    public final static By addedStateName = By.xpath("//div[@class='container']/p/span[@data-test='state']");
+    public final static By addedZipCode = By.xpath("//div[@class='container']/p/span[@data-test='zip_code']");
+    public final static By addressesDestroyButton = By.xpath("//table/tbody/tr[1]/td[7]/a");
+    public final static By addressesDestroyNotice = By.xpath("//div[@class='alert alert-notice'][@data-test='notice']");
+    public final static By addressesTableThirdRow = By.xpath("//table/tbody/tr[4]/td");
 
 }

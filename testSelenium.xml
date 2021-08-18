@@ -10,6 +10,8 @@
             <class name="test.java.TestAddressesPage"/>
             <class name="test.java.TestShowPage"/>
             <class name="test.java.TestEditPage"/>
+            <class name="test.java.TestAddPage"/>
+            <class name="test.java.TestSignUpPage"/>
         </classes>
     </test>
 </suite>
