@@ -103,7 +103,7 @@ public class TestAddressesPage {
     @Test
     public void testClickEditButtonURL() {
         this.addressesPage.clickEditButton();
-        Assert.assertEquals(this.addressesPage.getURL(), XPaths.editPageURL);
+        Assert.assertEquals(XPaths.editPageURL, this.addressesPage.getURL());
     }
 
     @Test

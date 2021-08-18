@@ -83,7 +83,7 @@ public class TestAddPage {
         Assert.assertEquals(this.addPage.getAddedZipCode(), zipCode);
     }
 
-    @Test()
+    @Test(priority = 9)
     public void testDeleteAddress() {
         this.addPage.goToURL(XPaths.addressesPageURL);
         this.addPage.clickDestroyButton();

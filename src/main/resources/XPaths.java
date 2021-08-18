@@ -43,11 +43,11 @@ public class XPaths {
     public final static By addressesEditButton = By.xpath("//table/tbody/tr[2]/td[6]/a");
     public final static By addressesAddButton = By.xpath("//a[@data-test='create']");
 
-    public final static String showPageURL = "http://a.testaddressbook.com/addresses/8175";
+    public final static String showPageURL = "http://a.testaddressbook.com/addresses/8915";
     public final static By secondaryAddress = By.xpath("//p[4]/span");
     public final static By birthday = By.xpath("//p[9]/span");
 
-    public final static String editPageURL = "http://a.testaddressbook.com/addresses/8748/edit";
+    public final static String editPageURL = "http://a.testaddressbook.com/addresses/8916/edit";
     public final static By lastNameField = By.xpath("//input[@name='address[last_name]']");
     public final static By updateButton = By.xpath("//input[@name='commit']");
     public final static By newLastName = By.xpath("//p[2]/span");
