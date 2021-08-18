@@ -88,6 +88,8 @@ public class TestAddPage {
         this.addPage.goToURL(XPaths.addressesPageURL);
         this.addPage.clickDestroyButton();
         this.addPage.getDriver().switchTo().alert().accept();
+        new WebDriverWait(this.addPage.getDriver(), 5).until
+                (ExpectedConditions.visibilityOfAllElementsLocatedBy(XPaths.addressesDestroyNotice));
         Assert.assertEquals(this.addPage.getDestroyNotice(), "Address was successfully destroyed.");
         try {
             this.addPage.getDriver().findElement(XPaths.addressesTableThirdRow);
