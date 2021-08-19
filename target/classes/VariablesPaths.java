@@ -28,7 +28,6 @@ public class VariablesPaths {
     public final static String USERS_PAGE_URL = "http://a.testaddressbook.com/users";
 
 
-
     public final static String HOME_PAGE_URL = "http://a.testaddressbook.com/";
     public final static By NAV_BAR_ADDRESSES = By.xpath("//div[@class='navbar-nav mr-auto']/a[@data-test='addresses']");
     public final static By NAV_BAR_SIGN_OUT = By.xpath("//div[@class='navbar-nav mr-auto']/a[@data-test='sign-out']");
@@ -62,9 +61,7 @@ public class VariablesPaths {
     public final static By ADDED_CITY_NAME = By.xpath("//div[@class='container']/p/span[@data-test='city']");
     public final static By ADDED_STATE_NAME = By.xpath("//div[@class='container']/p/span[@data-test='state']");
     public final static By ADDED_ZIP_CODE = By.xpath("//div[@class='container']/p/span[@data-test='zip_code']");
-    public final static By ADDRESSES_DESTROY_BUTTON = By.xpath("//table/tbody/tr[3]/td[7]/a");
     public final static By ADDRESSES_DESTROY_NOTICE = By.xpath("//div[@class='alert alert-notice'][@data-test='notice']");
-    public final static By ADDRESSES_TABLE_THIRD_ROW = By.xpath("//table/tbody/tr[4]/td");
     public final static By CONFIRM = By.xpath("//div[@class='alert alert-notice'][text()='Address was successfully created.']");
     public final static By ListButton = By.xpath("//div[@class='row justify-content-center']/a[text()='List']");
 
