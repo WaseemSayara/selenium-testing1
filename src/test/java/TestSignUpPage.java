@@ -1,7 +1,7 @@
 package test.java;
 
 import main.java.SignUpPage;
-import main.resources.XPaths;
+import main.resources.VariablesPaths;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -28,17 +28,17 @@ public class TestSignUpPage {
         ChromeDriver driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         this.signUpPage = new SignUpPage(driver);
-        this.signUpPage.goToURL(XPaths.signUpPageURL);
+        this.signUpPage.goToURL(VariablesPaths.SIGN_UP_PAGE_URL);
         new WebDriverWait(this.signUpPage.getDriver(), 5).until
-                (ExpectedConditions.visibilityOfAllElementsLocatedBy(XPaths.signUpEmailField));
+                (ExpectedConditions.visibilityOfAllElementsLocatedBy(VariablesPaths.SIGN_UP_EMAIL_FIELD));
     }
 
     @AfterMethod
     public void testTeardown() {
         this.signUpPage.getDriver().manage().deleteAllCookies();
-        this.signUpPage.goToURL(XPaths.signUpPageURL);
+        this.signUpPage.goToURL(VariablesPaths.SIGN_UP_PAGE_URL);
         new WebDriverWait(this.signUpPage.getDriver(), 5).until
-                (ExpectedConditions.visibilityOfAllElementsLocatedBy(XPaths.signUpEmailField));
+                (ExpectedConditions.visibilityOfAllElementsLocatedBy(VariablesPaths.SIGN_UP_EMAIL_FIELD));
     }
 
     @AfterClass
@@ -70,7 +70,7 @@ public class TestSignUpPage {
         this.signUpPage.setEmailField(newEmail);
         this.signUpPage.setPasswordField(newPassword);
         this.signUpPage.clickSignUpButton();
-        Assert.assertEquals(this.signUpPage.getURL(), XPaths.homePageURL);
+        Assert.assertEquals(this.signUpPage.getURL(), VariablesPaths.HOME_PAGE_URL);
     }
 
     @Test
@@ -78,7 +78,7 @@ public class TestSignUpPage {
         this.signUpPage.setEmailField("was@gmail.com");
         this.signUpPage.setPasswordField("1212");
         this.signUpPage.clickSignUpButton();
-        Assert.assertEquals(this.signUpPage.getURL(), XPaths.usersPageURL);
+        Assert.assertEquals(this.signUpPage.getURL(), VariablesPaths.USERS_PAGE_URL);
     }
 
 }

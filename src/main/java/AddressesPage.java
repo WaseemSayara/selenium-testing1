@@ -1,74 +1,55 @@
 package main.java;
 
-import main.resources.XPaths;
+import main.resources.VariablesPaths;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.List;
 
 
-public class AddressesPage {
+public class AddressesPage extends AddressBook {
 
     ChromeDriver driver;
 
     public AddressesPage(ChromeDriver driver) {
+        super(driver);
         this.driver = driver;
     }
 
-    public ChromeDriver getDriver() {
-        return driver;
-    }
-
-    public void goToURL(String URL) {
-        driver.get(URL);
-    }
-
-    public void closeDriver() {
-        driver.close();
-    }
-
-    public String getPageTitle() {
-        return driver.getTitle();
-    }
-
-    public String getURL() {
-        return driver.getCurrentUrl();
-    }
-
     public String getHeader2Text() {
-        return driver.findElement(XPaths.header2).getText().trim();
+        return driver.findElement(VariablesPaths.HEADER_2).getText().trim();
     }
 
     public List<WebElement> getTableHeaders() {
-        return driver.findElements(XPaths.addressesTableHeaders);
+        return driver.findElements(VariablesPaths.ADDRESSES_TABLE_HEADERS);
     }
 
     public List<WebElement> getTableFirstRow() {
-        return driver.findElements(XPaths.addressesTableFirstRow);
+        return driver.findElements(VariablesPaths.ADDRESSES_TABLE_FIRST_ROW);
     }
 
     public String getShowButtonText() {
-        return driver.findElement(XPaths.addressesShowButton).getText().trim();
+        return driver.findElement(VariablesPaths.ADDRESSES_SHOW_BUTTON).getText().trim();
     }
 
     public void clickShowButton() {
-        driver.findElement(XPaths.addressesShowButton).click();
+        driver.findElement(VariablesPaths.ADDRESSES_SHOW_BUTTON).click();
     }
 
     public String getEditButtonText() {
-        return driver.findElement(XPaths.addressesEditButton).getText().trim();
+        return driver.findElement(VariablesPaths.ADDRESSES_EDIT_BUTTON).getText().trim();
     }
 
     public void clickEditButton() {
-        driver.findElement(XPaths.addressesEditButton).click();
+        driver.findElement(VariablesPaths.ADDRESSES_EDIT_BUTTON).click();
     }
 
     public String getAddButtonText() {
-        return driver.findElement(XPaths.addressesAddButton).getText().trim();
+        return driver.findElement(VariablesPaths.ADDRESSES_ADD_BUTTON).getText().trim();
     }
 
     public void clickAddButton() {
-        driver.findElement(XPaths.addressesAddButton).click();
+        driver.findElement(VariablesPaths.ADDRESSES_ADD_BUTTON).click();
     }
 
 }

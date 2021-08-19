@@ -1,7 +1,7 @@
 package test.java;
 
 import main.java.EditPage;
-import main.resources.XPaths;
+import main.resources.VariablesPaths;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -30,23 +30,23 @@ public class TestEditPage {
         ChromeDriver driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         this.editPage = new EditPage(driver);
-        this.editPage.goToURL(XPaths.signInPageURL);
-        this.editPage.getDriver().findElement(XPaths.emailField).sendKeys(XPaths.myEmail);
-        this.editPage.getDriver().findElement(XPaths.passwordField).sendKeys(XPaths.myPassword);
-        this.editPage.getDriver().findElement(XPaths.signInButton).click();
-        this.editPage.getDriver().findElement(XPaths.navBarAddresses).click();
+        this.editPage.goToURL(VariablesPaths.SIGN_IN_PAGE_URL);
+        this.editPage.getDriver().findElement(VariablesPaths.EMAIL_FIELD).sendKeys(VariablesPaths.MY_EMAIL);
+        this.editPage.getDriver().findElement(VariablesPaths.PASSWORD_FIELD).sendKeys(VariablesPaths.MY_PASSWORD);
+        this.editPage.getDriver().findElement(VariablesPaths.SIGN_IN_BUTTON).click();
+        this.editPage.getDriver().findElement(VariablesPaths.NAV_BAR_ADDRESSES).click();
         new WebDriverWait(this.editPage.getDriver(), 5).until
-                (ExpectedConditions.visibilityOfAllElementsLocatedBy(XPaths.addressesEditButton));
-        this.editPage.getDriver().findElement(XPaths.addressesEditButton).click();
+                (ExpectedConditions.visibilityOfAllElementsLocatedBy(VariablesPaths.ADDRESSES_EDIT_BUTTON));
+        this.editPage.getDriver().findElement(VariablesPaths.ADDRESSES_EDIT_BUTTON).click();
         new WebDriverWait(this.editPage.getDriver(), 5).until
-                (ExpectedConditions.visibilityOfAllElementsLocatedBy(XPaths.updateButton));
+                (ExpectedConditions.visibilityOfAllElementsLocatedBy(VariablesPaths.UPDATE_BUTTON));
     }
 
     @AfterMethod
     public void testTeardown() {
-        this.editPage.goToURL(XPaths.editPageURL);
+        this.editPage.goToURL(VariablesPaths.EDIT_PAGE_URL);
         new WebDriverWait(this.editPage.getDriver(), 5).until
-                (ExpectedConditions.visibilityOfAllElementsLocatedBy(XPaths.updateButton));
+                (ExpectedConditions.visibilityOfAllElementsLocatedBy(VariablesPaths.UPDATE_BUTTON));
     }
 
     @AfterClass
@@ -61,7 +61,7 @@ public class TestEditPage {
 
     @Test
     public void testPageURL() {
-        Assert.assertEquals(this.editPage.getURL(), XPaths.editPageURL);
+        Assert.assertEquals(this.editPage.getURL(), VariablesPaths.EDIT_PAGE_URL);
     }
 
     @Test

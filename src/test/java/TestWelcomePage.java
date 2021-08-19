@@ -1,13 +1,16 @@
 package test.java;
 
 import main.java.WelcomePage;
-import main.resources.XPaths;
+import main.resources.VariablesPaths;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 
 public class TestWelcomePage {
@@ -23,17 +26,17 @@ public class TestWelcomePage {
         ChromeDriver driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         this.welcomePage = new WelcomePage(driver);
-        this.welcomePage.goToURL(XPaths.welcomePageURL);
+        this.welcomePage.goToURL(VariablesPaths.WELCOME_PAGE_URL);
         new WebDriverWait(this.welcomePage.getDriver(), 5).until
-                (ExpectedConditions.visibilityOfAllElementsLocatedBy(XPaths.header1));
+                (ExpectedConditions.visibilityOfAllElementsLocatedBy(VariablesPaths.HEADER_1));
     }
 
     @AfterMethod
     public void testTeardown() {
         this.welcomePage.getDriver().manage().deleteAllCookies();
-        this.welcomePage.goToURL(XPaths.welcomePageURL);
+        this.welcomePage.goToURL(VariablesPaths.WELCOME_PAGE_URL);
         new WebDriverWait(this.welcomePage.getDriver(), 5).until
-                (ExpectedConditions.visibilityOfAllElementsLocatedBy(XPaths.header1));
+                (ExpectedConditions.visibilityOfAllElementsLocatedBy(VariablesPaths.HEADER_1));
     }
 
     @AfterClass
@@ -94,6 +97,6 @@ public class TestWelcomePage {
     @Test
     public void testNavBarSignInClickCurrent() {
         this.welcomePage.clickOnNavBarSignIn();
-        Assert.assertTrue(this.welcomePage.getDriver().findElement(XPaths.navSignInCurrent).isDisplayed());
+        Assert.assertTrue(this.welcomePage.getDriver().findElement(VariablesPaths.NAV_SIGN_IN_CURRENT).isDisplayed());
     }
 }

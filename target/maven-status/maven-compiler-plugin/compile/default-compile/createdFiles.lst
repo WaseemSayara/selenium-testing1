@@ -1,4 +1,5 @@
 test\java\TestEditPage.class
+main\resources\VariablesPaths.class
 main\java\EditPage.class
 main\java\ShowPage.class
 test\java\TestShowPage.class

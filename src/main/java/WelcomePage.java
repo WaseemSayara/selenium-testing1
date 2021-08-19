@@ -1,59 +1,40 @@
 package main.java;
 
-import main.resources.XPaths;
+import main.resources.VariablesPaths;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 
-public class WelcomePage {
+public class WelcomePage extends AddressBook {
 
     ChromeDriver driver;
 
     public WelcomePage(ChromeDriver driver) {
+        super(driver);
         this.driver = driver;
     }
 
-    public ChromeDriver getDriver() {
-        return driver;
-    }
-
-    public void goToURL(String URL) {
-        driver.get(URL);
-    }
-
-    public void closeDriver() {
-        driver.close();
-    }
-
-    public String getPageTitle() {
-        return driver.getTitle();
-    }
-
-    public String getURL() {
-        return driver.getCurrentUrl();
-    }
-
     public String getHeader1Text() {
-        return driver.findElement(XPaths.header1).getText().trim();
+        return driver.findElement(VariablesPaths.HEADER_1).getText().trim();
     }
 
     public String getHeader4Text() {
-        return driver.findElement(XPaths.header4).getText().trim();
+        return driver.findElement(VariablesPaths.HEADER_4).getText().trim();
     }
 
     public String getNavBarHomeText() {
-        return driver.findElement(XPaths.navBarHome).getText().trim();
+        return driver.findElement(VariablesPaths.NAV_BAR_HOME).getText().trim();
     }
 
     public void clickOnNavBarHome() {
-        driver.findElement(XPaths.navBarHome).click();
+        driver.findElement(VariablesPaths.NAV_BAR_HOME).click();
     }
 
     public String getNavBarSignInText() {
-        return driver.findElement(XPaths.navSignIn).getText().trim();
+        return driver.findElement(VariablesPaths.NAV_SIGN_IN).getText().trim();
     }
 
     public void clickOnNavBarSignIn() {
-        driver.findElement(XPaths.navSignIn).click();
+        driver.findElement(VariablesPaths.NAV_SIGN_IN).click();
     }
 
 }

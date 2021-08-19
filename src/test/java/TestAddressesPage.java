@@ -1,14 +1,17 @@
 package test.java;
 
 import main.java.AddressesPage;
-import main.resources.XPaths;
+import main.resources.VariablesPaths;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import java.util.List;
 
@@ -19,27 +22,27 @@ public class TestAddressesPage {
 
     @BeforeClass
     public void TestAddressesPageSetup() {
-        System.setProperty("webdriver.chrome.driver", "C:\\ChromeDriver\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--lang=en");
         options.addArguments("--disable-notifications");
         ChromeDriver driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         this.addressesPage = new AddressesPage(driver);
-        this.addressesPage.goToURL(XPaths.signInPageURL);
-        this.addressesPage.getDriver().findElement(XPaths.emailField).sendKeys(XPaths.myEmail);
-        this.addressesPage.getDriver().findElement(XPaths.passwordField).sendKeys(XPaths.myPassword);
-        this.addressesPage.getDriver().findElement(XPaths.signInButton).click();
-        this.addressesPage.getDriver().findElement(XPaths.navBarAddresses).click();
+        this.addressesPage.goToURL(VariablesPaths.SIGN_IN_PAGE_URL);
+        this.addressesPage.getDriver().findElement(VariablesPaths.EMAIL_FIELD).sendKeys(VariablesPaths.MY_EMAIL);
+        this.addressesPage.getDriver().findElement(VariablesPaths.PASSWORD_FIELD).sendKeys(VariablesPaths.MY_PASSWORD);
+        this.addressesPage.getDriver().findElement(VariablesPaths.SIGN_IN_BUTTON).click();
+        this.addressesPage.getDriver().findElement(VariablesPaths.NAV_BAR_ADDRESSES).click();
         new WebDriverWait(this.addressesPage.getDriver(), 5).until
-                (ExpectedConditions.visibilityOfAllElementsLocatedBy(XPaths.addressesAddButton));
+                (ExpectedConditions.visibilityOfAllElementsLocatedBy(VariablesPaths.ADDRESSES_ADD_BUTTON));
     }
 
     @AfterMethod
     public void testTeardown() {
-        this.addressesPage.goToURL(XPaths.addressesPageURL);
+        this.addressesPage.goToURL(VariablesPaths.ADDRESSES_PAGE_URL);
         new WebDriverWait(this.addressesPage.getDriver(), 5).until
-                (ExpectedConditions.visibilityOfAllElementsLocatedBy(XPaths.addressesAddButton));
+                (ExpectedConditions.visibilityOfAllElementsLocatedBy(VariablesPaths.ADDRESSES_ADD_BUTTON));
     }
 
     @AfterClass
@@ -55,7 +58,7 @@ public class TestAddressesPage {
 
     @Test
     public void testPageURL() {
-        Assert.assertEquals(this.addressesPage.getURL(), XPaths.addressesPageURL);
+        Assert.assertEquals(this.addressesPage.getURL(), VariablesPaths.ADDRESSES_PAGE_URL);
     }
 
     @Test
@@ -92,7 +95,7 @@ public class TestAddressesPage {
     @Test
     public void testClickShowButtonURL() {
         this.addressesPage.clickShowButton();
-        Assert.assertEquals(this.addressesPage.getURL(), XPaths.showPageURL);
+        Assert.assertEquals(this.addressesPage.getURL(), VariablesPaths.SHOW_PAGE_URL);
     }
 
     @Test
@@ -103,7 +106,7 @@ public class TestAddressesPage {
     @Test
     public void testClickEditButtonURL() {
         this.addressesPage.clickEditButton();
-        Assert.assertEquals(this.addressesPage.getURL(), XPaths.editPageURL);
+        Assert.assertEquals(this.addressesPage.getURL(), VariablesPaths.EDIT_PAGE_URL);
     }
 
     @Test
@@ -114,7 +117,7 @@ public class TestAddressesPage {
     @Test
     public void testClickAddButtonURL() {
         this.addressesPage.clickAddButton();
-        Assert.assertEquals(this.addressesPage.getURL(), XPaths.addPageURL);
+        Assert.assertEquals(this.addressesPage.getURL(), VariablesPaths.ADD_PAGE_URL);
     }
 
 }

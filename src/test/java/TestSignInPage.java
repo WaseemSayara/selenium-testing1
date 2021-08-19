@@ -1,7 +1,7 @@
 package test.java;
 
 import main.java.SignInPage;
-import main.resources.XPaths;
+import main.resources.VariablesPaths;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,17 +26,17 @@ public class TestSignInPage {
         ChromeDriver driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         this.signInPage = new SignInPage(driver);
-        this.signInPage.goToURL(XPaths.signInPageURL);
+        this.signInPage.goToURL(VariablesPaths.SIGN_IN_PAGE_URL);
         new WebDriverWait(this.signInPage.getDriver(), 5).until
-                (ExpectedConditions.visibilityOfAllElementsLocatedBy(XPaths.emailField));
+                (ExpectedConditions.visibilityOfAllElementsLocatedBy(VariablesPaths.EMAIL_FIELD));
     }
 
     @AfterMethod
     public void testTeardown() {
         this.signInPage.getDriver().manage().deleteAllCookies();
-        this.signInPage.goToURL(XPaths.signInPageURL);
+        this.signInPage.goToURL(VariablesPaths.SIGN_IN_PAGE_URL);
         new WebDriverWait(this.signInPage.getDriver(), 5).until
-                (ExpectedConditions.visibilityOfAllElementsLocatedBy(XPaths.emailField));
+                (ExpectedConditions.visibilityOfAllElementsLocatedBy(VariablesPaths.EMAIL_FIELD));
     }
 
     @AfterClass
@@ -82,24 +82,24 @@ public class TestSignInPage {
 
     @Test
     public void testSuccessSignIn() {
-        this.signInPage.setEmailField(XPaths.myEmail);
-        this.signInPage.setPasswordField(XPaths.myPassword);
+        this.signInPage.setEmailField(VariablesPaths.MY_EMAIL);
+        this.signInPage.setPasswordField(VariablesPaths.MY_PASSWORD);
         this.signInPage.clickSignInButton();
-        Assert.assertEquals(this.signInPage.getURL(), XPaths.homePageURL);
+        Assert.assertEquals(this.signInPage.getURL(), VariablesPaths.HOME_PAGE_URL);
     }
 
     @Test
     public void testWrongEmailFormat() {
         this.signInPage.setEmailField("wrongemailformat");
-        this.signInPage.setPasswordField(XPaths.myPassword);
+        this.signInPage.setPasswordField(VariablesPaths.MY_PASSWORD);
         this.signInPage.clickSignInButton();
-        Assert.assertEquals(this.signInPage.getURL(), XPaths.signInPageURL);
+        Assert.assertEquals(this.signInPage.getURL(), VariablesPaths.SIGN_IN_PAGE_URL);
     }
 
     @Test
     public void testWrongEmail() {
         this.signInPage.setEmailField("wrongemail@gmail.com");
-        this.signInPage.setPasswordField(XPaths.myPassword);
+        this.signInPage.setPasswordField(VariablesPaths.MY_PASSWORD);
         this.signInPage.clickSignInButton();
         Assert.assertEquals(this.signInPage.getURL(), "http://a.testaddressbook.com/session");
         Assert.assertEquals(this.signInPage.getWarningText(), "Bad email or password.");
@@ -107,7 +107,7 @@ public class TestSignInPage {
 
     @Test
     public void testWrongPassword() {
-        this.signInPage.setEmailField(XPaths.myEmail);
+        this.signInPage.setEmailField(VariablesPaths.MY_EMAIL);
         this.signInPage.setPasswordField("wrong password");
         this.signInPage.clickSignInButton();
         Assert.assertEquals(this.signInPage.getURL(), "http://a.testaddressbook.com/session");
@@ -117,6 +117,6 @@ public class TestSignInPage {
     @Test
     public void testSignUpClick() {
         this.signInPage.clickSignUpButton();
-        Assert.assertEquals(this.signInPage.getURL(), XPaths.signUpPageURL);
+        Assert.assertEquals(this.signInPage.getURL(), VariablesPaths.SIGN_UP_PAGE_URL);
     }
 }

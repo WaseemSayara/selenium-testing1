@@ -1,7 +1,7 @@
 package test.java;
 
 import main.java.HomePage;
-import main.resources.XPaths;
+import main.resources.VariablesPaths;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,19 +26,19 @@ public class TestHomePage {
         ChromeDriver driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         this.homePage = new HomePage(driver);
-        this.homePage.goToURL(XPaths.signInPageURL);
-        this.homePage.getDriver().findElement(XPaths.emailField).sendKeys(XPaths.myEmail);
-        this.homePage.getDriver().findElement(XPaths.passwordField).sendKeys(XPaths.myPassword);
-        this.homePage.getDriver().findElement(XPaths.signInButton).click();
+        this.homePage.goToURL(VariablesPaths.SIGN_IN_PAGE_URL);
+        this.homePage.getDriver().findElement(VariablesPaths.EMAIL_FIELD).sendKeys(VariablesPaths.MY_EMAIL);
+        this.homePage.getDriver().findElement(VariablesPaths.PASSWORD_FIELD).sendKeys(VariablesPaths.MY_PASSWORD);
+        this.homePage.getDriver().findElement(VariablesPaths.SIGN_IN_BUTTON).click();
         new WebDriverWait(this.homePage.getDriver(), 5).until
-                (ExpectedConditions.visibilityOfAllElementsLocatedBy(XPaths.header1));
+                (ExpectedConditions.visibilityOfAllElementsLocatedBy(VariablesPaths.HEADER_1));
     }
 
     @AfterMethod
     public void testTeardown() {
-        this.homePage.goToURL(XPaths.homePageURL);
+        this.homePage.goToURL(VariablesPaths.HOME_PAGE_URL);
         new WebDriverWait(this.homePage.getDriver(), 5).until
-                (ExpectedConditions.visibilityOfAllElementsLocatedBy(XPaths.header1));
+                (ExpectedConditions.visibilityOfAllElementsLocatedBy(VariablesPaths.HEADER_1));
     }
 
     @AfterClass
@@ -75,7 +75,7 @@ public class TestHomePage {
     @Test
     public void testNavBarHomeClickURL() {
         this.homePage.clickOnNavBarHome();
-        Assert.assertEquals(this.homePage.getURL(), XPaths.homePageURL);
+        Assert.assertEquals(this.homePage.getURL(), VariablesPaths.HOME_PAGE_URL);
     }
 
     @Test
@@ -92,15 +92,15 @@ public class TestHomePage {
     @Test
     public void testNavBarAddressesClickURL() {
         new WebDriverWait(this.homePage.getDriver(), 5).until(ExpectedConditions.visibilityOf
-                (this.homePage.getDriver().findElement(XPaths.navBarAddresses)));
+                (this.homePage.getDriver().findElement(VariablesPaths.NAV_BAR_ADDRESSES)));
         this.homePage.clickOnNavBarAddresses();
-        Assert.assertEquals(this.homePage.getURL(), XPaths.addressesPageURL);
+        Assert.assertEquals(this.homePage.getURL(), VariablesPaths.ADDRESSES_PAGE_URL);
     }
 
     @Test
     public void testNavBarSignOutText() {
         new WebDriverWait(this.homePage.getDriver(), 5).until(ExpectedConditions.visibilityOf
-                (this.homePage.getDriver().findElement(XPaths.navBarSignOut)));
+                (this.homePage.getDriver().findElement(VariablesPaths.NAV_BAR_SIGN_OUT)));
         Assert.assertEquals(this.homePage.getNavBarSignOutText(), "Sign out");
     }
 

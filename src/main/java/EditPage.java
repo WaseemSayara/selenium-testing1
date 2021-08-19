@@ -1,55 +1,36 @@
 package main.java;
 
-import main.resources.XPaths;
+import main.resources.VariablesPaths;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.List;
 
 
-public class EditPage {
+public class EditPage extends AddressBook {
 
     ChromeDriver driver;
 
     public EditPage(ChromeDriver driver) {
+        super(driver);
         this.driver = driver;
     }
 
-    public ChromeDriver getDriver() {
-        return driver;
-    }
-
-    public void goToURL(String URL) {
-        driver.get(URL);
-    }
-
-    public void closeDriver() {
-        driver.close();
-    }
-
-    public String getPageTitle() {
-        return driver.getTitle();
-    }
-
-    public String getURL() {
-        return driver.getCurrentUrl();
-    }
-
     public void setNewLastName(String newName) {
-        driver.findElement(XPaths.lastNameField).clear();
-        driver.findElement(XPaths.lastNameField).sendKeys(newName);
+        driver.findElement(VariablesPaths.LAST_NAME_FIELD).clear();
+        driver.findElement(VariablesPaths.LAST_NAME_FIELD).sendKeys(newName);
     }
 
     public List<WebElement> getNewLastName() {
-        return driver.findElements(XPaths.newLastName);
+        return driver.findElements(VariablesPaths.NEW_LAST_NAME);
     }
 
     public String getUpdateButtonText() {
-        return driver.findElement(XPaths.updateButton).getAttribute("value").trim();
+        return driver.findElement(VariablesPaths.UPDATE_BUTTON).getAttribute("value").trim();
     }
 
     public void clickUpdateButton() {
-        driver.findElement(XPaths.updateButton).click();
+        driver.findElement(VariablesPaths.UPDATE_BUTTON).click();
     }
 
 }
